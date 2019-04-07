@@ -28,6 +28,7 @@
             <th>Price </th>
             <th>Largest Trade </th>
             <th>Split </th>
+            <th>Previous Records </th>
 
 
         </tr>
@@ -64,6 +65,10 @@
 
             <td>
                 <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Split">Split Price</a>
+            </td>
+
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Previous">Previous</a>
             </td>
 
         </tr>

@@ -1,0 +1,77 @@
+﻿@model MVC_Project.Models.Previous
+
+@{
+    ViewData["Title"] = "Previous";
+}
+
+<h2>Previous</h2>
+
+<div>
+    <h4>Previous</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.exDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.exDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.open)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.open)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.high)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.high)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.low)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.low)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.close)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.close)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.volume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.volume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.unadjustedVolume)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.unadjustedVolume)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.change)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.change)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.changePercent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.changePercent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.vwap)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vwap)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

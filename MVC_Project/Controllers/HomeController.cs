@@ -227,7 +227,7 @@ namespace MVC_Project.Controllers
 
 
 
-        //High and Low Price
+        //Splits
         public List<Splits> GetSplits(string symbol)
         {
 
@@ -261,6 +261,45 @@ namespace MVC_Project.Controllers
             TempData["split"] = JsonConvert.SerializeObject(split);
             
             return View(split);
+        }
+
+
+
+
+        //Previous
+        public Previous GetPrevious(string symbol)
+        {
+
+            string IEXTrading_API_PATH = BASE_URL + "/stock/" + symbol + "/previous";
+            string previous_List = "";
+            Previous previous = new Previous();
+            httpClient.BaseAddress = new Uri(IEXTrading_API_PATH);
+
+            HttpResponseMessage respose = httpClient.GetAsync(IEXTrading_API_PATH).GetAwaiter().GetResult();
+
+            if (respose.IsSuccessStatusCode)
+            {
+                previous_List = respose.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            }
+            if (!previous_List.Equals(""))
+            {
+                previous = JsonConvert.DeserializeObject<Previous>(previous_List);
+                //previous.GetRange(0, previous.Count);
+            }
+            return previous;
+        }
+
+        public IActionResult Previous(string id)
+        {
+            String symbols = id;
+            //Set ViewBag variable first
+            ViewBag.dbSuccessComp = 0;
+            Previous previous = GetPrevious(symbols);
+
+            //Save companies in TempData, so they do not have to be retrieved again
+            TempData["previous"] = JsonConvert.SerializeObject(previous);
+
+            return View(previous);
         }
 
 

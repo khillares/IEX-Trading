@@ -60,4 +60,23 @@ namespace MVC_Project.Models
         public double forFactor { get; set; }
     }
 
+
+
+    public class Previous
+    {
+        [Key]
+        public string symbol { get; set; }
+        public DateTime exDate { get; set; }
+        public double open { get; set; }
+        public double high { get; set; }
+        public double low { get; set; }
+        public double close { get; set; }
+        public double volume { get; set; }
+        public double unadjustedVolume { get; set; }
+        public double change { get; set; }
+        public double changePercent { get; set; }
+        public double vwap { get; set; }
+    }
+
+
 }
