@@ -287,5 +287,31 @@ namespace MVC_Project.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        /// <summary>
+        /// Save the available symbols in the database
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult PopulateSymbols()
+        {
+           
+            List<Company> companies = JsonConvert.DeserializeObject<List<Company>>(TempData["Companies"].ToString());
+
+            foreach (Company company in companies)
+            {
+                //Database will give PK constraint violation error when trying to insert record with existing PK.
+                //So add company only if it doesnt exist, check existence using symbol (PK)
+                if (dbContext.Companies.Where(c => c.Symbol.Equals(company.Symbol)).Count() == 0)
+                {
+                    dbContext.Companies.Add(company);
+                }
+            }
+
+            dbContext.SaveChanges();
+            ViewBag.dbSuccessComp = 1;
+            return View("Symbols", companies);
+        }
+
+
+
     }
 }
