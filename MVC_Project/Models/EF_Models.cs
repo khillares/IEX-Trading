@@ -36,4 +36,28 @@ namespace MVC_Project.Models
     }
 
 
+    public class Largest_Trade
+    {
+        [Key]
+        public double price { get; set; }
+        public double size { get; set; }
+        public DateTime time { get; set; }
+        public DateTime timelabel { get; set; }
+        public string venue { get; set; }
+        public string name { get; set; }
+    }
+
+    public class Splits
+    {
+        [Key]
+       
+        public DateTime exDate { get; set; }
+        public DateTime declaredDate { get; set; }
+        public DateTime recordDate { get; set; }
+        public DateTime paymentDate { get; set; }
+        public double ratio { get; set; }
+        public double toFactor { get; set; }
+        public double forFactor { get; set; }
+    }
+
 }

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_Project.Models.Largest_Trade>
+
+@{
+    ViewData["Title"] = "Largest_Trade";
+}
+
+<h2>Largest_Trade</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timelabel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timelabel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+         
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC_Project.Models.Splits>
+
+@{
+    ViewData["Title"] = "Split";
+}
+
+<h2>Split</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.declaredDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recordDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paymentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toFactor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.forFactor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.declaredDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recordDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paymentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ratio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toFactor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.forFactor)
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>

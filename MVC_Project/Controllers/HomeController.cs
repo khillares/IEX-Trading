@@ -188,6 +188,87 @@ namespace MVC_Project.Controllers
 
 
 
+        //Largest Trades
+        public List<Largest_Trade> GetLargestTrade(string symbol)
+        {
+
+            string IEXTrading_API_PATH = BASE_URL + "/stock/" + symbol + "/largest-trades";
+            string largest_trade_List = "";
+            List<Largest_Trade> largest_trades = new List<Largest_Trade>();
+            httpClient.BaseAddress = new Uri(IEXTrading_API_PATH);
+
+            HttpResponseMessage respose = httpClient.GetAsync(IEXTrading_API_PATH).GetAwaiter().GetResult();
+
+            if (respose.IsSuccessStatusCode)
+            {
+                largest_trade_List = respose.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            }
+            if (!largest_trade_List.Equals(""))
+            {
+                largest_trades = JsonConvert.DeserializeObject<List<Largest_Trade>>(largest_trade_List);
+                largest_trades.GetRange(0, largest_trades.Count);
+            }
+            return largest_trades;
+        }
+        
+        public IActionResult Largest_Trade(string id)
+        {
+            String symbols = id;
+            //Set ViewBag variable first
+            ViewBag.dbSuccessComp = 0;
+            List<Largest_Trade> largest_trade = GetLargestTrade(symbols);
+
+            //Save companies in TempData, so they do not have to be retrieved again
+            TempData["largest_trade"] = JsonConvert.SerializeObject(largest_trade);
+            //Console.WriteLine(divident);
+            return View(largest_trade);
+        }
+
+
+
+
+        //High and Low Price
+        public List<Splits> GetSplits(string symbol)
+        {
+
+            string IEXTrading_API_PATH = BASE_URL + "/stock/" + symbol + "/splits/5y";
+            string split_List = "";
+            List<Splits> split = new List<Splits>();
+            httpClient.BaseAddress = new Uri(IEXTrading_API_PATH);
+
+            HttpResponseMessage respose = httpClient.GetAsync(IEXTrading_API_PATH).GetAwaiter().GetResult();
+
+            if (respose.IsSuccessStatusCode)
+            {
+                split_List = respose.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            }
+            if (!split_List.Equals(""))
+            {
+                split = JsonConvert.DeserializeObject<List<Splits>>(split_List);
+                split.GetRange(0, split.Count);
+            }
+            return split;
+        }
+
+        public IActionResult Split(string id)
+        {
+            String symbols = id;
+            //Set ViewBag variable first
+            ViewBag.dbSuccessComp = 0;
+            List<Splits> split = GetSplits(symbols);
+
+            //Save companies in TempData, so they do not have to be retrieved again
+            TempData["split"] = JsonConvert.SerializeObject(split);
+            
+            return View(split);
+        }
+
+
+
+
+
+
+
 
 
 

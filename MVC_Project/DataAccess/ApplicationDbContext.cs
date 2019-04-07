@@ -15,5 +15,9 @@ namespace MVC_Project.DataAccess
         public DbSet<Company> Companies { get; set; }
         public DbSet<Divident> Divident { get; set; }
         public DbSet<MVC_Project.Models.Price> Price { get; set; }
+        public DbSet<MVC_Project.Models.Largest_Trade> Largest_Trade { get; set; }
+        public DbSet<MVC_Project.Models.Splits> Splits { get; set; }
+       
+        
     }
 }

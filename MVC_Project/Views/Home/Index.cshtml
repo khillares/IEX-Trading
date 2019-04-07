@@ -26,6 +26,9 @@
             </th>
             <th>Dividends </th>
             <th>Price </th>
+            <th>Largest Trade </th>
+            <th>Split </th>
+
 
         </tr>
     </thead>
@@ -53,6 +56,14 @@
 
             <td>
                 <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Price">Price</a>
+            </td>
+
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Largest_Trade">Largest Trade</a>
+            </td>
+
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Split">Split Price</a>
             </td>
 
         </tr>
