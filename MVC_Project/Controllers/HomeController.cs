@@ -350,6 +350,25 @@ namespace MVC_Project.Controllers
             return View("Symbols", companies);
         }
 
+        public IActionResult SaveDividend()
+        {
+
+            List<Divident> divident = JsonConvert.DeserializeObject<List<Divident>>(TempData["divident"].ToString());
+
+            foreach (Divident div in divident)
+            {
+                //Database will give PK constraint violation error when trying to insert record with existing PK.
+                //So add company only if it doesnt exist, check existence using symbol (PK)
+                //if (dbContext.Divident.Where(c => c..Equals(div.Symbol)).Count() == 0)
+                //{
+                    dbContext.Divident.Add(div);
+                //}
+            }
+
+            dbContext.SaveChanges();
+            ViewBag.dbSuccessComp = 1;
+            return View("Divident", divident);
+        }
 
 
     }
