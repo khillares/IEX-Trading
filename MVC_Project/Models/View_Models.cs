@@ -26,9 +26,10 @@ namespace MVC_Project.Models
         }
     }
 
-    public class AzureMLModel
+   /* public class AzureMLModel
     {
         public string Message { get; set; }
         public string JsonObject { get; set; }
     }
+    */
 }

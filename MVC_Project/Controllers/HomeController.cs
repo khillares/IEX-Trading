@@ -85,21 +85,7 @@ namespace MVC_Project.Controllers
             return View();
         }
 
-        /*Added by Prachi
-         * To display companies
-         *
-         */
-        public IActionResult Companies()
-        {
-            //Set ViewBag variable first
-            ViewBag.dbSuccessComp = 0;
-            List<Company> companies = GetSymbols();
 
-            //Save companies in TempData, so they do not have to be retrieved again
-            TempData["Companies"] = JsonConvert.SerializeObject(companies);
-
-            return View(companies);
-        }
 
         /*
             The Symbols action calls the GetSymbols method that returns a list of Companies.
