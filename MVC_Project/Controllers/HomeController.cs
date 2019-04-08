@@ -77,6 +77,20 @@ namespace MVC_Project.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
+        /*Added by Prachi
+         * To display companies
+         *
+         */
+        public IActionResult Companies()
+        {
             //Set ViewBag variable first
             ViewBag.dbSuccessComp = 0;
             List<Company> companies = GetSymbols();
