@@ -40,7 +40,9 @@ namespace MVC_Project.Models
     {
         [Key]
         public double price { get; set; }
-        public double size { get; set; }
+//        public double size { get; set; }
+
+        public int size { get; set; }
         public DateTime time { get; set; }
         public DateTime timelabel { get; set; }
         public string venue { get; set; }

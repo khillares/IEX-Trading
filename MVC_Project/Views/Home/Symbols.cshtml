@@ -26,7 +26,7 @@
             </th>
             <th>Dividends </th>
             <th>Price </th>
-            <th>Largest Trade </th>
+            <!-- <th>Largest Trade </th>-->
             <th>Split </th>
             <th>Previous Records </th>
 
@@ -36,43 +36,43 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsEnabled)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IexId)
-                </td>
-                <td>
-                    <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Divident">Dividend</a>
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IexId)
+            </td>
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Divident">Dividend</a>
+            </td>
 
-                <td>
-                    <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Price">Price</a>
-                </td>
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Price">Price</a>
+            </td>
+            <!--
+        <td>
+            <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Largest_Trade">Largest Trade</a>
+        </td>
+    -->
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Split">Split Price</a>
+            </td>
 
-                <td>
-                    <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Largest_Trade">Largest Trade</a>
-                </td>
+            <td>
+                <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Previous">Previous</a>
+            </td>
 
-                <td>
-                    <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Split">Split Price</a>
-                </td>
-
-                <td>
-                    <a asp-controller="Home" asp-route-id="@item.Symbol" asp-action="Previous">Previous</a>
-                </td>
-
-            </tr>
+        </tr>
         }
        
     </tbody>
