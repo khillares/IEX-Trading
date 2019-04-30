@@ -18,6 +18,7 @@ namespace MVC_Project.DataAccess
         public DbSet<MVC_Project.Models.Largest_Trade> Largest_Trade { get; set; }
         public DbSet<MVC_Project.Models.Splits> Splits { get; set; }
         public DbSet<MVC_Project.Models.Previous> Previous { get; set; }
+        public DbSet<MVC_Project.Models.delayed_quote> delayed_quote { get; set; }
        
         
     }

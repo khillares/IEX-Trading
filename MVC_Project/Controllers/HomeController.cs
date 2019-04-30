@@ -370,6 +370,38 @@ namespace MVC_Project.Controllers
             return View("Divident", divident);
         }
 
+        //Delayed Quite
+        public delayed_quote GetDelayedQuote(string symbol)
+        {
+
+            string IEXTrading_API_PATH = BASE_URL + "/stock/" + symbol + "/delayed-quote";
+            string delayed_quote_List = "";
+            delayed_quote delayed_quote = new delayed_quote();
+            httpClient.BaseAddress = new Uri(IEXTrading_API_PATH);
+
+            HttpResponseMessage respose = httpClient.GetAsync(IEXTrading_API_PATH).GetAwaiter().GetResult();
+
+            if (respose.IsSuccessStatusCode)
+            {
+                delayed_quote_List = respose.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            }
+            if (!delayed_quote_List.Equals(""))
+            {
+                delayed_quote = JsonConvert.DeserializeObject<delayed_quote>(delayed_quote_List);
+                //previous.GetRange(0, previous.Count);
+            }
+            return delayed_quote;
+        }
+
+        public IActionResult delayed_quote(string id)
+        {
+            String symbols = id;
+            //Set ViewBag variable first
+            ViewBag.dbSuccessComp = 0;
+            delayed_quote delayed_quote = GetDelayedQuote(symbols);
+
+            return View(delayed_quote);
+        }
 
     }
 }

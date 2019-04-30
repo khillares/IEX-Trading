@@ -1,0 +1,30 @@
+﻿@model MVC_Project.Models.delayed_quote
+
+@{
+    ViewData["Title"] = "delayed_quote";
+}
+
+<h2>Delayed Quote</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Delayed Price
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.delayedPrice)
+        </dd>
+        <dt>
+           Delayed Size
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.delayedSize)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Symbols">Back to List</a>
+</div>

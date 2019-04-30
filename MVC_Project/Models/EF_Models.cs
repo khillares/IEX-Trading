@@ -98,5 +98,14 @@ namespace MVC_Project.Models
         public string symbol { get; set; }
     }
 
+    public class delayed_quote
+    {
+        [Key]
+        public string Symbol { get; set; }
+        public double delayedPrice { get; set; }
+        public int delayedSize { get; set; }
+
+    }
+
 
 }
